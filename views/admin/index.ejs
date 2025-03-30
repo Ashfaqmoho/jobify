@@ -1,0 +1,22 @@
+<%- include('../partials/header.ejs') %>
+<div class="admin-page">
+    <div class="admin-container">
+        <h3 class="admin-heading">Admin Login</h3>
+        <form action="/admin" method="POST" class="admin-form">
+            <label for="username" class="admin-label"><b>Username</b></label>
+            <input type="text" name="username" id="username" placeholder="Enter Username" class="admin-input" required>
+
+            <label for="password" class="admin-label"><b>Password</b></label>
+            <input type="password" name="password" id="password" placeholder="Enter Password" class="admin-input" required>
+
+            <input type="submit" value="Login" class="admin-btn">
+        </form>
+        <% if (typeof errorMessage !=='undefined' ) { %>
+            <script>
+                alert('<%= errorMessage %>');
+            </script>
+            <% } %>
+        
+    </div>
+</div>
+

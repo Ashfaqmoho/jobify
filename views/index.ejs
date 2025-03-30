@@ -1,0 +1,53 @@
+<div class="author">
+    <h1 class="author_heading">Your career Success starts here</h1>
+    <p class="author_body">Ready to take the next step in your career? Explore a world of opportunities tailored just
+        for you. Press the button below to start your job search and unlock your potential today.</p>
+    <button class="home-btn" id="home-btn" onclick="jobList()">
+        CLICK
+    </button>
+</div>
+
+
+<div class="job-container" id="job-container">
+    <div class="job-description">
+        <h2>JOB LIST</h2>
+        <div class="searchBar">
+            <form action="/search" class="search_form" role="search" method="POST">
+                <input type="search" aria-label="Search" id="searchInput" name="searchTerm"
+                    placeholder="Search the site...">
+            </form>
+        </div>
+        <section class="articles">
+            <ul class="article-ul">
+                <% data.forEach(jobs=> {%>
+                    <a href="/job/<%= jobs._id %>" class="link">
+                        <li class="article-item">
+                            <div class="article-image">
+                                <img src="<%= jobs.image %>" alt="Image" />
+                            </div>
+                            <div class="article-content">
+                                <span class="job-title">
+                                    <%= jobs.title %>
+                                </span>
+                                <span class="company-name">
+                                    <%= jobs.company %>
+                                </span>
+                                <div class="article-details">
+                                    <div class="additional-info">
+                                        <span class="skills">Skills: <%= jobs.skill %></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="job-amount">
+                                <span class="salary">
+                                    Rs <%= jobs.salary %>
+                                </span>
+                                <span class="experience">Experience: <%= jobs.experience %></span>
+                            </div>
+                        </li>
+                    </a>
+                    <%}) %>
+            </ul>
+        </section>
+    </div>
+</div>
